@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748B"/></marker>
+<marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3E9B70"/></marker>
+<marker id="arrowPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9272D4"/></marker>
+<filter id="shadow" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#18324F" flood-opacity="0.08"/></filter>
+</defs>
+<rect width="1920" height="1080" fill="#F6F8FC"/>
+<text x="70" y="76" font-family="Noto Sans CJK SC, sans-serif" font-size="42" font-weight="700" fill="#142B45">动态区域选择｜论文 3.3 运动区域提取</text>
+<text x="72" y="119" font-family="Noto Sans CJK SC, sans-serif" font-size="21" fill="#64748B">相邻帧运动补偿 → 帧差候选提取 → 外观相关筛选 → 为下一帧生成局部检测 ROI</text>
+<line x1="70" y1="145" x2="1850" y2="145" stroke="#DCE4EE" stroke-width="2"/>
+<rect x="60" y="185" width="410" height="195" rx="20" fill="#EAF2FF" stroke="#78A5E2" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="78" y="202" width="44" height="34" rx="12" fill="#78A5E2"/>
+<text x="100" y="226" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">1</text>
+<text x="138" y="228" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#172B4D">连续帧输入</text>
+<text x="86" y="269" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">前一帧 I(t−1)     当前帧 I(t)</text>
+<text x="86" y="300" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">转为灰度并提取角点特征</text>
+<text x="86" y="331" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">同一时刻的画面进入配准</text>
+<rect x="520" y="185" width="410" height="195" rx="20" fill="#EAF4FF" stroke="#67A3E6" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="538" y="202" width="44" height="34" rx="12" fill="#67A3E6"/>
+<text x="560" y="226" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">2</text>
+<text x="598" y="228" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#172B4D">特征点匹配</text>
+<text x="546" y="269" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">Shi–Tomasi 角点检测</text>
+<text x="546" y="300" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">LK 光流跟踪相邻帧特征点</text>
+<text x="546" y="331" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">生成前后帧对应点集合</text>
+<rect x="980" y="185" width="410" height="195" rx="20" fill="#EAF4FF" stroke="#67A3E6" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="998" y="202" width="44" height="34" rx="12" fill="#67A3E6"/>
+<text x="1020" y="226" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">3</text>
+<text x="1058" y="228" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#172B4D">相机运动估计</text>
+<text x="1006" y="269" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">RANSAC 剔除误匹配点</text>
+<text x="1006" y="300" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">估计单应矩阵 H</text>
+<text x="1006" y="331" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">用背景运动描述全局位移</text>
+<rect x="1440" y="185" width="410" height="195" rx="20" fill="#E2F0FF" stroke="#4588D0" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="1458" y="202" width="44" height="34" rx="12" fill="#4588D0"/>
+<text x="1480" y="226" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">4</text>
+<text x="1518" y="228" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#172B4D">前帧变换对齐</text>
+<text x="1466" y="269" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">将 I(t−1) 变换到 I(t) 坐标</text>
+<text x="1466" y="300" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">W(I(t−1), H)</text>
+<text x="1466" y="331" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">补偿相机运动，突出独立运动</text>
+<path d="M470 283 H512" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M930 283 H972" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M1390 283 H1432" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1440" y="440" width="410" height="195" rx="20" fill="#FFF8E8" stroke="#E7B34E" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="1458" y="457" width="44" height="34" rx="12" fill="#E7B34E"/>
+<text x="1480" y="481" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">5</text>
+<text x="1518" y="483" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#714A12">帧间差分</text>
+<text x="1466" y="524" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">D(t) = | I(t) − W(I(t−1), H) |</text>
+<text x="1466" y="555" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">相机补偿后计算像素差异</text>
+<text x="1466" y="586" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">得到运动响应图</text>
+<rect x="980" y="440" width="410" height="195" rx="20" fill="#FFF8E8" stroke="#E7B34E" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="998" y="457" width="44" height="34" rx="12" fill="#E7B34E"/>
+<text x="1020" y="481" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">6</text>
+<text x="1058" y="483" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#714A12">自适应阈值</text>
+<text x="1006" y="524" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">根据局部像素统计动态设阈值</text>
+<text x="1006" y="555" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">阈值约为局部均值 + 2σ</text>
+<text x="1006" y="586" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">demo 另加 8 灰度级偏置</text>
+<rect x="520" y="440" width="410" height="195" rx="20" fill="#FFF3D6" stroke="#D89B2B" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="538" y="457" width="44" height="34" rx="12" fill="#D89B2B"/>
+<text x="560" y="481" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">7</text>
+<text x="598" y="483" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#714A12">形态学去噪</text>
+<text x="546" y="524" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">开运算去除零散噪点</text>
+<text x="546" y="555" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">闭运算连接断裂区域 / 填洞</text>
+<text x="546" y="586" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">整理二值运动掩膜</text>
+<rect x="60" y="440" width="410" height="195" rx="20" fill="#FFF3D6" stroke="#D89B2B" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="78" y="457" width="44" height="34" rx="12" fill="#D89B2B"/>
+<text x="100" y="481" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">8</text>
+<text x="138" y="483" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#714A12">连通区域筛选</text>
+<text x="86" y="524" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">提取二值图连通分量</text>
+<text x="86" y="555" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">按面积与尺寸过滤噪声</text>
+<text x="86" y="586" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">输出运动候选框与区域</text>
+<path d="M1645 380 V410 H1645 V440" fill="none" stroke="#B17B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="1685" y="414" text-anchor="start" font-family="Noto Sans CJK SC, sans-serif" font-size="14" font-weight="600" fill="#9A6A19">配准帧</text>
+<path d="M520 538 H470" fill="none" stroke="#B17B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M980 538 H930" fill="none" stroke="#B17B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M1440 538 H1390" fill="none" stroke="#B17B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="60" y="695" width="410" height="195" rx="20" fill="#F3EEFF" stroke="#9D83DE" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="78" y="712" width="44" height="34" rx="12" fill="#9D83DE"/>
+<text x="100" y="736" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">9</text>
+<text x="138" y="738" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#513A88">候选区域 + 目标模板</text>
+<text x="86" y="779" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">运动候选来自连通区域筛选</text>
+<text x="86" y="810" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">模板来自上一帧模型确认框</text>
+<text x="86" y="841" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">初始无模板时按运动优先级筛选</text>
+<rect x="520" y="695" width="410" height="195" rx="20" fill="#F0E9FF" stroke="#9072D4" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="538" y="712" width="44" height="34" rx="12" fill="#9072D4"/>
+<text x="560" y="736" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">10</text>
+<text x="598" y="738" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#513A88">相关性筛选与排序</text>
+<text x="546" y="779" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">比较候选区域与目标外观模板</text>
+<text x="546" y="810" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">demo 用灰度 NCC 做轻量近似</text>
+<text x="546" y="841" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">论文原方法为特征图相关卷积</text>
+<rect x="980" y="695" width="410" height="195" rx="20" fill="#EAF6EF" stroke="#58A57A" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="998" y="712" width="44" height="34" rx="12" fill="#58A57A"/>
+<text x="1020" y="736" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">11</text>
+<text x="1058" y="738" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#286849">生成局部 ROI</text>
+<text x="1006" y="779" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">选择高相关性 / 优先级最高候选</text>
+<text x="1006" y="810" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">以候选中心扩展为 640×640</text>
+<text x="1006" y="841" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">将局部坐标映射回原帧坐标</text>
+<rect x="1440" y="695" width="410" height="195" rx="20" fill="#DFF3E7" stroke="#3E9B70" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="1458" y="712" width="44" height="34" rx="12" fill="#3E9B70"/>
+<text x="1480" y="736" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">12</text>
+<text x="1518" y="738" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#286849">送入下一帧</text>
+<text x="1466" y="779" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">局部 YOLO 检测与候选复核</text>
+<text x="1466" y="810" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">模型确认后更新目标模板</text>
+<text x="1466" y="841" font-family="Noto Sans CJK SC, sans-serif" font-size="17" fill="#42566F">漏检则继续运动搜索 / 全图重捕获</text>
+<path d="M265 635 V695" fill="none" stroke="#B17B1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="306" y="674" text-anchor="start" font-family="Noto Sans CJK SC, sans-serif" font-size="14" font-weight="600" fill="#9A6A19">候选区域</text>
+<path d="M470 793 H512" fill="none" stroke="#4C956E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrowGreen)"/>
+<path d="M930 793 H972" fill="none" stroke="#4C956E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrowGreen)"/>
+<path d="M1390 793 H1432" fill="none" stroke="#4C956E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrowGreen)"/>
+<path d="M1645 890 V930 H265 V890" fill="none" stroke="#9272D4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrowPurple)" stroke-dasharray="10 8"/>
+<text x="950" y="923" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="15" font-weight="600" fill="#755CB3">模型确认框用于刷新外观模板</text>
+<text x="70" y="1010" font-family="Noto Sans CJK SC, sans-serif" font-size="16" fill="#64748B">实现说明：论文 ROI 边长为 160 px；本 demo 按当前要求使用 640×640。灰度 NCC 是对论文特征图相关卷积的工程近似。</text>
+</svg>

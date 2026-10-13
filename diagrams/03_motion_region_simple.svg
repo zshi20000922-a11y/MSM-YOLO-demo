@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#6B7F95"/></marker></defs>
+<rect width="1920" height="1080" fill="#F7F9FC"/>
+<text x="90" y="105" font-family="Noto Sans CJK SC, sans-serif" font-size="48" font-weight="700" fill="#18324F">动态区域选择</text>
+<text x="92" y="155" font-family="Noto Sans CJK SC, sans-serif" font-size="25" fill="#52657C">利用帧间运动信息生成下一帧局部检测区域</text>
+<line x1="90" y1="195" x2="1830" y2="195" stroke="#DCE4EE" stroke-width="2"/>
+<rect x="90" y="390" width="250" height="190" rx="22" fill="#EAF2FF" stroke="#78A5E2" stroke-width="3"/>
+<text x="215" y="475" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#18324F">相邻视频帧</text>
+<text x="215" y="517" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">前一帧 + 当前帧</text>
+<rect x="400" y="390" width="250" height="190" rx="22" fill="#EAF2FF" stroke="#78A5E2" stroke-width="3"/>
+<text x="525" y="475" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#18324F">运动补偿</text>
+<text x="525" y="517" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">特征匹配 · 帧对齐</text>
+<rect x="710" y="390" width="250" height="190" rx="22" fill="#FFF5E0" stroke="#D5A03D" stroke-width="3"/>
+<text x="835" y="475" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#18324F">运动提取</text>
+<text x="835" y="517" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">帧差 · 去噪</text>
+<rect x="1020" y="390" width="250" height="190" rx="22" fill="#F1ECFF" stroke="#9275D6" stroke-width="3"/>
+<text x="1145" y="475" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#18324F">候选筛选</text>
+<text x="1145" y="517" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">运动区域 · 外观相关</text>
+<rect x="1330" y="390" width="250" height="190" rx="22" fill="#E8F5ED" stroke="#55A177" stroke-width="3"/>
+<text x="1455" y="475" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#18324F">生成 ROI</text>
+<text x="1455" y="517" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">目标周围 640×640</text>
+<rect x="1640" y="390" width="250" height="190" rx="22" fill="#E8F5ED" stroke="#55A177" stroke-width="3"/>
+<text x="1765" y="475" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#18324F">局部检测</text>
+<text x="1765" y="517" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">YOLO · 阈值 0.6</text>
+<path d="M349 485 L391 485" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M659 485 L701 485" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M969 485 L1011 485" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1279 485 L1321 485" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1589 485 L1631 485" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1765 610 V755 H835 V610" fill="none" stroke="#9275D6" stroke-width="4" stroke-dasharray="12 10" marker-end="url(#arrow)"/>
+<text x="1300" y="705" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="600" fill="#684DA7">确认框更新目标模板，辅助下一帧候选筛选</text>
+<text x="960" y="900" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#18324F">输出：下一帧优先搜索区域（640×640）</text>
+</svg>

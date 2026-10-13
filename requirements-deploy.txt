@@ -1,0 +1,3 @@
+-r requirements.txt
+onnx>=1.17,<2
+onnxslim>=0.1.69,<1

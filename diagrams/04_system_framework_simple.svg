@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#6B7F95"/></marker></defs>
+<rect width="1920" height="1080" fill="#F7F9FC"/>
+<text x="90" y="105" font-family="Noto Sans CJK SC, sans-serif" font-size="48" font-weight="700" fill="#18324F">无人机小目标检测系统框架</text>
+<text x="92" y="155" font-family="Noto Sans CJK SC, sans-serif" font-size="25" fill="#52657C">动态区域选择负责确定检测范围，现有 YOLO 检测后由 ByteTrack 关联目标</text>
+<line x1="90" y1="195" x2="1830" y2="195" stroke="#DCE4EE" stroke-width="2"/>
+<rect x="60" y="390" width="300" height="200" rx="22" fill="#EAF2FF" stroke="#78A5E2" stroke-width="3"/>
+<text x="210" y="480" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#18324F">视频输入</text>
+<text x="210" y="522" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">无人机视频 / 摄像头</text>
+<rect x="420" y="390" width="300" height="200" rx="22" fill="#FFF5E0" stroke="#D5A03D" stroke-width="3"/>
+<text x="570" y="480" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#18324F">区域选择</text>
+<text x="570" y="522" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">全图 / 局部 ROI / 运动候选</text>
+<rect x="780" y="390" width="300" height="200" rx="22" fill="#E8F5ED" stroke="#55A177" stroke-width="3"/>
+<text x="930" y="480" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#18324F">YOLO 检测</text>
+<text x="930" y="522" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">现有 best.pt · conf 0.6</text>
+<rect x="1140" y="390" width="300" height="200" rx="22" fill="#FCEAF4" stroke="#D45C9B" stroke-width="3"/>
+<text x="1290" y="480" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#18324F">ByteTrack</text>
+<text x="1290" y="522" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">目标关联 · 分配 Track ID</text>
+<rect x="1500" y="390" width="300" height="200" rx="22" fill="#EAF2FF" stroke="#78A5E2" stroke-width="3"/>
+<text x="1650" y="480" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#18324F">结果输出</text>
+<text x="1650" y="522" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="19" fill="#52657C">检测框 · 目标编号</text>
+<path d="M370 490 L410 490" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M730 490 L770 490" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1090 490 L1130 490" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M1450 490 L1490 490" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="960" y="715" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#18324F">检测区域状态切换</text>
+<rect x="180" y="805" width="410" height="115" rx="22" fill="#EAF2FF" stroke="#78A5E2" stroke-width="3"/>
+<text x="385" y="852" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#18324F">全图搜索</text>
+<text x="385" y="894" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="18" fill="#52657C">未检出 / 定期重捕获</text>
+<rect x="755" y="805" width="410" height="115" rx="22" fill="#E8F5ED" stroke="#55A177" stroke-width="3"/>
+<text x="960" y="852" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#18324F">局部检测</text>
+<text x="960" y="894" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="18" fill="#52657C">目标已定位</text>
+<rect x="1330" y="805" width="410" height="115" rx="22" fill="#FFF5E0" stroke="#D5A03D" stroke-width="3"/>
+<text x="1535" y="852" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#18324F">运动搜索</text>
+<text x="1535" y="894" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="18" fill="#52657C">局部漏检时寻找候选</text>
+<path d="M590 862 L745 862" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="665" y="837" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="16" font-weight="600" fill="#52657C">检出</text>
+<path d="M1165 862 L1320 862" fill="none" stroke="#6B7F95" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="1240" y="837" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="16" font-weight="600" fill="#52657C">漏检</text>
+<path d="M1535 920 V970 H385 V920" fill="none" stroke="#D5A03D" stroke-width="3" stroke-dasharray="10 9" marker-end="url(#arrow)"/>
+<text x="960" y="940" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="18" font-weight="500" fill="#52657C">发现候选后重新检测；连续失败则返回全图搜索</text>
+</svg>

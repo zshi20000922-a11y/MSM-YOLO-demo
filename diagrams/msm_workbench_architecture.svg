@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">MSM-YOLO-demo system architecture</title>
+  <desc id="desc">Video frames pass through interchangeable motion proposals, an explicit global or ROI YOLO state machine, unified detection, ByteTrack tracking, and Qt visualization with SQLite experiment records. Training and deployment are independent workflows.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#eef4fb"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#527399" stroke-width="1.8"/></marker>
+    <style>
+      text{font-family:Inter,"Noto Sans CJK SC","Microsoft YaHei",Arial,sans-serif;fill:#183153}
+      .title{font-size:35px;font-weight:750}
+      .subtitle{font-size:17px;fill:#55708f}
+      .section{font-size:15px;font-weight:750;letter-spacing:1.4px;fill:#3b628e}
+      .cardTitle{font-size:22px;font-weight:730}
+      .body{font-size:15px;fill:#4b6684}
+      .small{font-size:13px;fill:#5d7895}
+      .chip{font-size:13px;font-weight:680}
+      .line{fill:none;stroke:#527399;stroke-width:2.7;marker-end:url(#arrow)}
+      .dashed{fill:none;stroke:#8198b3;stroke-width:2.3;stroke-dasharray:7 7;marker-end:url(#arrow)}
+      .card{fill:#fff;stroke:#dce6f1;stroke-width:1.5}
+    </style>
+  </defs>
+  <rect width="1400" height="760" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1400" height="11" fill="#2563a7"/>
+  <text x="65" y="70" class="title">MSM-YOLO-demo · Research Workbench</text>
+  <text x="65" y="102" class="subtitle">Motion-guided detection, explicit state control, tracking, and reproducible local experiments</text>
+  <text x="65" y="153" class="section">VIDEO INFERENCE PIPELINE  /  视频推理主流程</text>
+
+  <rect class="card" x="64" y="184" width="174" height="248" rx="17"/>
+  <rect x="80" y="203" width="142" height="7" rx="3.5" fill="#5d9ad6"/>
+  <text x="84" y="254" class="cardTitle">Video frames</text>
+  <text x="84" y="282" class="body">原始视频帧</text>
+  <text x="84" y="324" class="small">Decode → timestamp</text>
+  <text x="84" y="349" class="small">Same frame to modules</text>
+  <rect x="84" y="380" width="118" height="26" rx="13" fill="#e9f2fb"/>
+  <text x="97" y="398" class="chip" fill="#2867a8">Input video</text>
+
+  <rect class="card" x="278" y="184" width="252" height="248" rx="17"/>
+  <rect x="294" y="203" width="220" height="7" rx="3.5" fill="#24a8a4"/>
+  <text x="298" y="254" class="cardTitle">Motion proposals</text>
+  <text x="298" y="283" class="body">可替换运动区域提取</text>
+  <text x="298" y="322" class="small">Optical flow + frame diff</text>
+  <text x="298" y="347" class="small">Plain frame diff · MOG2</text>
+  <rect x="298" y="377" width="209" height="34" rx="10" fill="#e7f8f6"/>
+  <text x="313" y="400" class="chip" fill="#147f7b">ROI · mask · diagnostics</text>
+
+  <rect class="card" x="570" y="184" width="272" height="248" rx="17"/>
+  <rect x="586" y="203" width="240" height="7" rx="3.5" fill="#7766c8"/>
+  <text x="590" y="254" class="cardTitle">Decision state machine</text>
+  <text x="590" y="283" class="body">全图 / ROI 检测策略</text>
+  <text x="590" y="321" class="small">GLOBAL_SEARCH → LOCAL_DETECT</text>
+  <text x="590" y="346" class="small">MOTION_EXTRACT → VERIFY</text>
+  <rect x="590" y="377" width="225" height="34" rx="10" fill="#f0edfa"/>
+  <text x="605" y="400" class="chip" fill="#6653b2">Confirm · hold · recover</text>
+
+  <rect class="card" x="882" y="184" width="218" height="248" rx="17"/>
+  <rect x="898" y="203" width="186" height="7" rx="3.5" fill="#eea343"/>
+  <text x="902" y="254" class="cardTitle">YOLO detector</text>
+  <text x="902" y="283" class="body">统一检测输出</text>
+  <text x="902" y="321" class="small">Original YOLOv5</text>
+  <text x="902" y="346" class="small">Ultralytics mainline</text>
+  <rect x="902" y="377" width="174" height="34" rx="10" fill="#fff3df"/>
+  <text x="917" y="400" class="chip" fill="#ab6b1f">Source-frame boxes</text>
+
+  <rect class="card" x="1140" y="184" width="196" height="248" rx="17"/>
+  <rect x="1156" y="203" width="164" height="7" rx="3.5" fill="#db6f94"/>
+  <text x="1160" y="254" class="cardTitle">ByteTrack</text>
+  <text x="1160" y="283" class="body">目标关联追踪</text>
+  <text x="1160" y="322" class="small">Detections / empty frame</text>
+  <text x="1160" y="347" class="small">Track IDs · trajectories</text>
+  <rect x="1160" y="377" width="151" height="34" rx="10" fill="#fcecf2"/>
+  <text x="1175" y="400" class="chip" fill="#b04570">Track outputs</text>
+
+  <path class="line" d="M238 308 H268"/>
+  <path class="line" d="M530 308 H560"/>
+  <path class="line" d="M842 308 H872"/>
+  <path class="line" d="M1100 308 H1130"/>
+  <path class="dashed" d="M238 410 C398 466 511 461 570 411"/>
+  <text x="296" y="474" class="small">Global search uses full frame when needed</text>
+
+  <text x="65" y="525" class="section">WORKBENCH &amp; ARTIFACTS  /  可视化与实验资产</text>
+  <rect class="card" x="64" y="549" width="626" height="149" rx="17"/>
+  <rect x="80" y="566" width="594" height="6" rx="3" fill="#3b86c8"/>
+  <text x="84" y="616" class="cardTitle">Qt visual workbench</text>
+  <text x="84" y="647" class="body">Stage images · threshold replay · algorithm comparison</text>
+  <text x="84" y="675" class="small">Training controls and PT → ONNX → RKNN desktop workflow</text>
+  <rect class="card" x="729" y="549" width="607" height="149" rx="17"/>
+  <rect x="745" y="566" width="575" height="6" rx="3" fill="#4c91ad"/>
+  <text x="749" y="616" class="cardTitle">SQLite experiment registry</text>
+  <text x="749" y="647" class="body">Configuration · model hash · metrics · result paths</text>
+  <text x="749" y="675" class="small">ARD100 video-level evaluation; videos and weights stay local</text>
+  <path class="dashed" d="M706 432 V496 C706 520 512 520 512 540"/>
+  <path class="dashed" d="M1238 432 V498 C1238 520 1036 520 1036 540"/>
+  <path class="line" d="M690 625 H719"/>
+  <text x="65" y="737" class="small">Project contribution: modular workflow and evaluation engineering. YOLO model architecture is unchanged; RK3588 board performance remains unverified.</text>
+</svg>

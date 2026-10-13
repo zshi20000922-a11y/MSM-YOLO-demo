@@ -1,0 +1,48 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+.conda/
+.idea/
+.vscode/
+
+# Local experiments, assets, and machine-specific settings
+runs/
+validation/
+data/
+datasets/
+external/
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.log
+*.tmp
+*.bak
+
+# Weights, deployment artifacts, and video inputs/outputs
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.rknn
+*.engine
+*.tflite
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# Local calibration and prediction images; diagrams are intentionally tracked
+calibration/
+predictions/
+outputs/
