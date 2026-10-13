@@ -7,6 +7,7 @@ This repository publishes project-authored source, tests, documentation, and dia
 | Dependency / Asset | Role | License and installation boundary |
 |---|---|---|
 | [Ultralytics](https://github.com/ultralytics/ultralytics) | Mainline detection, ByteTrack, training, ONNX export | Upstream AGPL-3.0 or separate enterprise licensing; install from its official package/source. Read upstream terms for your use case. |
+| [Ultralytics example `bus.jpg`](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/assets/bus.jpg) | Visible inside UI screenshots of the detection and tracking workflow | The source image is not distributed as a standalone file in this repository; screenshots include its appearance and credit the upstream example. |
 | [Original YOLOv5](https://github.com/ultralytics/yolov5) | Native inference of original-repository checkpoints | Separate checkout with its upstream AGPL-3.0 terms; point `MSM_YOLOV5_ROOT` at it. Its weights and code are not copied here. |
 | [PyTorch](https://pytorch.org/), [OpenCV](https://opencv.org/), [PySide6](https://www.qt.io/qt-for-python), [LAP](https://pypi.org/project/lap/), [PyYAML](https://pyyaml.org/) | Runtime libraries | Installed as dependencies; their own package licenses apply. |
 | [RKNN-Toolkit2](https://github.com/airockchip/rknn-toolkit2) | Optional desktop ONNX → RKNN conversion | External Rockchip toolkit with its own [license](https://github.com/airockchip/rknn-toolkit2/blob/master/LICENSE); install and use separately. No toolkit wheel or runtime binary is distributed here. |

@@ -1116,6 +1116,8 @@ class TunerWindow(QMainWindow):
         layout.addWidget(self.motion_diagnosis_label)
         self.lab_stage_panels = [ImagePanel("等待算法模拟", with_description=True)
                                  for _ in range(8)]
+        for panel in self.lab_stage_panels:
+            panel.image.setMinimumSize(220, 170)
         grid = QGridLayout()
         grid.setHorizontalSpacing(10)
         grid.setVerticalSpacing(10)
@@ -1125,8 +1127,8 @@ class TunerWindow(QMainWindow):
             grid.setColumnStretch(column, 1)
         for row in range(3):
             grid.setRowStretch(row, 1)
-        layout.addLayout(grid, 1)
-        return page
+        layout.addLayout(grid)
+        return self._scroll_page(page)
 
     def _update_motion_learning_card(self, *_args) -> None:
         if not hasattr(self, "motion_learning_text"):
@@ -2552,7 +2554,8 @@ class TunerWindow(QMainWindow):
         layout.addWidget(intro)
 
         row = QHBoxLayout()
-        self.yolo_image_edit = QLineEdit(str(HERE / "validation" / "model_only_02s.jpg"))
+        example_image = HERE / "validation" / "model_only_02s.jpg"
+        self.yolo_image_edit = QLineEdit(str(example_image) if example_image.is_file() else "")
         self.yolo_image_edit.setPlaceholderText("选择一张 JPG / PNG 图片")
         row.addWidget(self.yolo_image_edit, 1)
         browse = QPushButton("选择图片…")
@@ -2566,7 +2569,7 @@ class TunerWindow(QMainWindow):
         layout.addLayout(row)
 
         self.yolo_trace_status = QLabel(
-            "默认读取验证图片。分析时会加载上方‘检测追踪’选项中的权重和推理设备。"
+            "选择示例图片后，使用“检测追踪”页设置的权重和推理设备。"
         )
         self.yolo_trace_status.setObjectName("hint")
         self.yolo_trace_status.setWordWrap(True)

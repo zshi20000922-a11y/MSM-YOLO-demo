@@ -1,10 +1,21 @@
 # MSM-YOLO-demo：无人机视频小目标检测实验工作台
 
-[English README](README.md) · [运行环境](docs/setup.md) · [架构与贡献](docs/architecture.md) · [ARD100 汇总评测](docs/benchmark.md) · [参与贡献](CONTRIBUTING.md)
+[English README](README.md) · [功能截图与特写](docs/screenshots/README.md) · [运行环境](docs/setup.md) · [架构与贡献](docs/architecture.md) · [ARD100 汇总评测](docs/benchmark.md) · [参与贡献](CONTRIBUTING.md)
 
 项目把**运动区域提取 → 全图/局部 YOLO 检测 → ByteTrack 跟踪 → 实验记录**串成可观察、可替换的本地 Qt 工作台。我们研究的是现有检测器周围的运动引导流程、状态控制和实验工程；**没有修改 YOLO 网络结构，也不宣称训练了新架构**。
 
 ![MSM-YOLO-demo 系统架构](diagrams/msm_workbench_architecture.png)
+
+## 页面预览
+
+以下是实际运行的 Qt 界面截图。点击图片可看原尺寸；[功能截图与特写](docs/screenshots/README.md)逐项标出我们实现的部分。
+
+| 运动引导分析 | YOLO 阈值实验 |
+|---|---|
+| [![运动分析工作台](docs/screenshots/01-motion-workbench.png)](docs/screenshots/01-motion-workbench.png) | [![YOLO 置信度与 IoU 可视化控件](docs/screenshots/03-yolo-thresholds.png)](docs/screenshots/03-yolo-thresholds.png) |
+| 我们把相机补偿帧、帧差响应、掩膜和候选区域放在同一页，便于定位候选生成问题。 | 一次前向推理后缓存输出；拖动置信度和 NMS IoU 即可对照各阶段数量与图像。 |
+
+运动截图使用合成场景；YOLO 与追踪截图使用 Ultralytics 示例 `bus.jpg`。这些截图展示界面与流程，不作为 UAV 检测精度或 RK3588 板端性能证据。
 
 ## 项目贡献
 

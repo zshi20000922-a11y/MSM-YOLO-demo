@@ -1,10 +1,21 @@
 # MSM-YOLO-demo
 
-[中文说明](README_zh.md) · [Setup](docs/setup.md) · [Architecture](docs/architecture.md) · [ARD100 results](docs/benchmark.md) · [Contributing](CONTRIBUTING.md)
+[中文说明](README_zh.md) · [Screenshots](docs/screenshots/README.md) · [Setup](docs/setup.md) · [Architecture](docs/architecture.md) · [ARD100 results](docs/benchmark.md) · [Contributing](CONTRIBUTING.md)
 
 **A local research workbench for motion-guided small-object detection in UAV video.** It connects motion proposals, full-frame/ROI YOLO detection, ByteTrack, visual diagnostics, and a SQLite experiment registry. The project explores control flow and reproducible evaluation around existing detectors; it does **not** modify the YOLO network or claim a new trained architecture.
 
 ![MSM-YOLO-demo architecture](diagrams/msm_workbench_architecture.png)
+
+## Workbench preview
+
+The images below are captures of the running Qt app. Click to inspect the full resolution and see the [annotated feature gallery](docs/screenshots/README.md).
+
+| Motion-guided analysis | YOLO threshold lab |
+|---|---|
+| [![Motion workbench](docs/screenshots/01-motion-workbench.png)](docs/screenshots/01-motion-workbench.png) | [![YOLO confidence and IoU controls](docs/screenshots/03-yolo-thresholds.png)](docs/screenshots/03-yolo-thresholds.png) |
+| Our motion pipeline exposes the compensated frame, difference response, mask, and candidate regions together. | One forward pass is cached; confidence and NMS IoU controls update the stage counts and visual results. |
+
+The motion capture uses a synthetic scene. The YOLO and tracking captures use Ultralytics' sample `bus.jpg`; they illustrate the interface and workflow, not UAV detection accuracy or RK3588 performance.
 
 ## What this project adds
 
